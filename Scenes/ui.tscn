@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=3 uid="uid://bkvn85wq4lbej"]
+
+[ext_resource type="Script" uid="uid://bti4ejpgxo4in" path="res://Scripts/ui.gd" id="1_2246s"]
+[ext_resource type="Texture2D" uid="uid://mw8ia7hclpdu" path="res://Assets/drive-download-20250522T172244Z-1-001/Screenshot_20250522_141611_WhatsApp.png" id="2_q7pk6"]
+[ext_resource type="Texture2D" uid="uid://bg4u3apudeoyy" path="res://Assets/drive-download-20250522T172244Z-1-001/Screenshot_20250522_141718_WhatsApp.png" id="3_m78vo"]
+[ext_resource type="Texture2D" uid="uid://dtlagw3wtuk0g" path="res://Assets/drive-download-20250522T172244Z-1-001/Screenshot_20250522_141856_WhatsApp.png" id="4_smcll"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2246s"]
+font_size = 97
+
+[sub_resource type="LabelSettings" id="LabelSettings_q7pk6"]
+font_size = 97
+
+[node name="UI" type="MarginContainer" node_paths=PackedStringArray("label_vida_player", "label_vida_inimigo")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_2246s")
+label_vida_player = NodePath("vida_player")
+label_vida_inimigo = NodePath("vida_inimigo")
+
+[node name="vida_inimigo" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "20"
+label_settings = SubResource("LabelSettings_2246s")
+
+[node name="vida_player" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "20"
+label_settings = SubResource("LabelSettings_q7pk6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 26
+
+[node name="puto" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_q7pk6")
+
+[node name="superputo" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_m78vo")
+
+[node name="jarra" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_smcll")
+
+[node name="comendo" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+
+[connection signal="button_up" from="HBoxContainer/puto" to="." method="_on_puto_button_up"]
+[connection signal="button_up" from="HBoxContainer/superputo" to="." method="_on_superputo_button_up"]
+[connection signal="button_up" from="HBoxContainer/jarra" to="." method="_on_jarra_button_up"]
+[connection signal="button_up" from="HBoxContainer/comendo" to="." method="_on_comendo_button_up"]

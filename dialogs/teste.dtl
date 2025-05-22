@@ -1,0 +1,8 @@
+join mano1 left [animation="Fade In"]
+mano1: ain que vontade de comer cola
+join mano2 right [animation="Fade In"]
+mano2: Não tão rápido!!
+mano1: o que devo fazer?
+- Socar
+	jump teste/
+- Defender
