@@ -16,7 +16,7 @@ var damage_received : int
 var attack : int
 var attack_received : int
 
-var actions = [puto()]
+var actions = ["puto"]
 
 func _ready():
 	pass
@@ -27,17 +27,28 @@ func _on_puto_button_up() -> void:
 	attack = 4
 	var random_action = actions[randi() % actions.size()]
 	call(random_action)
-	puto()
 	player_life -= attack_received
 	enemy_life += -attack + enemy_defense
 	
 	#atualização do label
-	label_vida_inimigo.text = enemy_life
-	label_vida_player.text = player_life
+	label_vida_inimigo.text = str(enemy_life)
+	label_vida_player.text = str(player_life)
 	
 func _on_superputo_button_up() -> void:
-	pass # Replace with function body.
-
+	if player_energy >= 3:
+		print("player escolheu a carta superputo")
+		player_energy -=3
+		player_defense = -3
+		attack = 8
+		var random_action = actions[randi() % actions.size()]
+		call(random_action)
+		player_life += -attack_received + player_defense
+		enemy_life += -attack + enemy_defense
+		
+		label_vida_inimigo.text = str(enemy_life)
+		label_vida_player.text = str(player_life)
+	else:
+		print("você não tem energia o suficiente")
 
 func _on_jarra_pressed() -> void:
 	pass # Replace with function body.
@@ -53,10 +64,12 @@ func _on_comendo_button_up() -> void:
 func puto():
 	enemy_defense = 0
 	attack_received = 4
+	print("inimigo escolheu a carta puto")
 
 func superputo():
-	pass
-	
+	enemy_defense = -3
+	attack_received = 8
+	print("inimigo escolheu a carta puto")
 func jarra():
 	pass
 	
