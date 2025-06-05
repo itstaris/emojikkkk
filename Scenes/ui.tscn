@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bkvn85wq4lbej"]
+[gd_scene load_steps=14 format=3 uid="uid://bkvn85wq4lbej"]
 
 [ext_resource type="Script" uid="uid://bti4ejpgxo4in" path="res://Scripts/ui.gd" id="1_2246s"]
 [ext_resource type="Texture2D" uid="uid://mw8ia7hclpdu" path="res://Assets/drive-download-20250522T172244Z-1-001/Screenshot_20250522_141611_WhatsApp.png" id="2_q7pk6"]
@@ -21,6 +21,9 @@ font_size = 31
 
 [sub_resource type="LabelSettings" id="LabelSettings_2246s"]
 font_size = 67
+
+[sub_resource type="LabelSettings" id="LabelSettings_m78vo"]
+font_size = 41
 
 [sub_resource type="LabelSettings" id="LabelSettings_q7pk6"]
 font_size = 67
@@ -75,12 +78,18 @@ label_settings = SubResource("LabelSettings_mmixe")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
+size_flags_horizontal = 0
 
 [node name="enemy" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Enemy"
 label_settings = SubResource("LabelSettings_2246s")
+
+[node name="HP" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "HP"
+label_settings = SubResource("LabelSettings_m78vo")
 
 [node name="vida_inimigo" type="Label" parent="VBoxContainer"]
 layout_mode = 2
@@ -90,12 +99,19 @@ label_settings = SubResource("LabelSettings_2246s")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 2
+size_flags_horizontal = 8
 
 [node name="you" type="Label" parent="VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 8
 text = "You"
 label_settings = SubResource("LabelSettings_q7pk6")
+horizontal_alignment = 2
+
+[node name="HP" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+text = "HP"
+label_settings = SubResource("LabelSettings_m78vo")
 horizontal_alignment = 2
 
 [node name="vida_player2" type="Label" parent="VBoxContainer2"]
