@@ -1,25 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://2cwaq877osp6"]
+[gd_scene load_steps=5 format=3 uid="uid://26532u4xll01"]
 
-[ext_resource type="Script" uid="uid://1c4wqdrckp0a" path="res://Scripts/endgame.gd" id="1_47byl"]
-[ext_resource type="Texture2D" uid="uid://oijjs13ql15e" path="res://Assets/Screenshot_20250519_222737_WhatsApp.png" id="2_5sgi5"]
-[ext_resource type="Theme" uid="uid://d1ddqcwx4k83q" path="res://themes/button_theme.tres" id="2_gjg4f"]
+[ext_resource type="Script" uid="uid://1c4wqdrckp0a" path="res://Scripts/endgame.gd" id="1_vm5wx"]
+[ext_resource type="Texture2D" uid="uid://cy6t4cugf1g1v" path="res://Assets/Screenshot_20250605_145924_WhatsApp.png" id="2_vm5wx"]
+[ext_resource type="Theme" uid="uid://d1ddqcwx4k83q" path="res://themes/button_theme.tres" id="3_usbpo"]
 
 [sub_resource type="Theme" id="Theme_5sgi5"]
 Label/font_sizes/font_size = 61
 
-[node name="Winner" type="Control"]
+[node name="Loser" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_47byl")
+script = ExtResource("1_vm5wx")
 
 [node name="Screenshot20250519222737WhatsApp" type="Sprite2D" parent="."]
-position = Vector2(849.5, 456)
-scale = Vector2(4.27164, 2.23418)
-texture = ExtResource("2_5sgi5")
+position = Vector2(810.525, 463.789)
+scale = Vector2(4.07642, 2.3961)
+texture = ExtResource("2_vm5wx")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -38,17 +38,17 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_5sgi5")
-text = "You won!"
+text = "You lose!"
 horizontal_alignment = 1
 
 [node name="PlayAgainButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("2_gjg4f")
+theme = ExtResource("3_usbpo")
 text = "Play again"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("2_gjg4f")
+theme = ExtResource("3_usbpo")
 text = "Quit"
 
 [connection signal="button_up" from="VBoxContainer/PlayAgainButton" to="." method="_on_play_again_button_button_up"]

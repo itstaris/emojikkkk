@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bkvn85wq4lbej"]
+[gd_scene load_steps=18 format=3 uid="uid://bkvn85wq4lbej"]
 
 [ext_resource type="Script" uid="uid://bti4ejpgxo4in" path="res://Scripts/ui.gd" id="1_2246s"]
 [ext_resource type="Texture2D" uid="uid://mw8ia7hclpdu" path="res://Assets/drive-download-20250522T172244Z-1-001/Screenshot_20250522_141611_WhatsApp.png" id="2_q7pk6"]
@@ -14,21 +14,33 @@ colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_m78vo")
 
 [sub_resource type="LabelSettings" id="LabelSettings_ryf15"]
-font_size = 31
+font_size = 40
 
-[sub_resource type="LabelSettings" id="LabelSettings_mmixe"]
-font_size = 31
+[sub_resource type="LabelSettings" id="LabelSettings_4vbiv"]
+font_size = 27
 
 [sub_resource type="LabelSettings" id="LabelSettings_2246s"]
-font_size = 67
+font_size = 70
 
 [sub_resource type="LabelSettings" id="LabelSettings_m78vo"]
-font_size = 41
+font_size = 40
 
-[sub_resource type="LabelSettings" id="LabelSettings_q7pk6"]
+[sub_resource type="LabelSettings" id="LabelSettings_smcll"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_mmixe"]
 font_size = 67
 
-[node name="UI" type="MarginContainer" node_paths=PackedStringArray("label_vida_player", "label_vida_inimigo", "label_status_player", "label_status_inimigo")]
+[sub_resource type="LabelSettings" id="LabelSettings_q7pk6"]
+font_size = 70
+
+[sub_resource type="LabelSettings" id="LabelSettings_nt8jn"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_g0wmg"]
+font_size = 67
+
+[node name="UI" type="MarginContainer" node_paths=PackedStringArray("label_vida_player", "label_vida_inimigo", "label_energia_player", "label_energia_inimigo", "label_status_inimigo", "label_descricao")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -41,10 +53,12 @@ grow_vertical = 2
 scale = Vector2(0.8, 0.8)
 size_flags_horizontal = 4
 script = ExtResource("1_2246s")
-label_vida_player = NodePath("VBoxContainer2/vida_player2")
+label_vida_player = NodePath("VBoxContainer2/vida_player")
 label_vida_inimigo = NodePath("VBoxContainer/vida_inimigo")
-label_status_player = NodePath("status_player")
-label_status_inimigo = NodePath("status_player/status_inimigo")
+label_energia_player = NodePath("VBoxContainer2/energia_player")
+label_energia_inimigo = NodePath("VBoxContainer/energia_inimigo")
+label_status_inimigo = NodePath("status_inimigo")
+label_descricao = NodePath("status_inimigo/descricao")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(836.23, 425.859)
@@ -52,29 +66,32 @@ rotation = 3.14159
 scale = Vector2(7.97052, 1170.64)
 texture = SubResource("GradientTexture1D_smcll")
 
-[node name="status_player" type="Label" parent="."]
+[node name="status_inimigo" type="Label" parent="."]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-text = "aaaaaaaaaaaaaaaaaaaaaaa"
+text = "                  "
 label_settings = SubResource("LabelSettings_ryf15")
 horizontal_alignment = 1
 
-[node name="status_inimigo" type="Label" parent="status_player"]
+[node name="descricao" type="Label" parent="status_inimigo"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -386.25
-offset_top = 130.5
-offset_right = 386.75
-offset_bottom = 174.5
+offset_left = -164.75
+offset_top = 242.5
+offset_right = 165.25
+offset_bottom = 286.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-label_settings = SubResource("LabelSettings_mmixe")
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "               "
+label_settings = SubResource("LabelSettings_4vbiv")
+horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -97,6 +114,20 @@ size_flags_horizontal = 0
 text = "20"
 label_settings = SubResource("LabelSettings_2246s")
 
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 25
+
+[node name="STA" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "STA"
+label_settings = SubResource("LabelSettings_smcll")
+
+[node name="energia_inimigo" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "10"
+label_settings = SubResource("LabelSettings_mmixe")
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 8
@@ -114,11 +145,27 @@ text = "HP"
 label_settings = SubResource("LabelSettings_m78vo")
 horizontal_alignment = 2
 
-[node name="vida_player2" type="Label" parent="VBoxContainer2"]
+[node name="vida_player" type="Label" parent="VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 8
 text = "20"
 label_settings = SubResource("LabelSettings_q7pk6")
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_top = 25
+
+[node name="STA" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+text = "STA"
+label_settings = SubResource("LabelSettings_nt8jn")
+horizontal_alignment = 2
+
+[node name="energia_player" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+text = "10"
+label_settings = SubResource("LabelSettings_g0wmg")
+horizontal_alignment = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -147,7 +194,17 @@ layout_mode = 2
 texture_normal = ExtResource("6_m78vo")
 
 [connection signal="button_up" from="HBoxContainer/puto" to="." method="_on_puto_button_up"]
+[connection signal="mouse_entered" from="HBoxContainer/puto" to="." method="_on_puto_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/puto" to="." method="_on_puto_mouse_exited"]
 [connection signal="button_up" from="HBoxContainer/superputo" to="." method="_on_superputo_button_up"]
+[connection signal="mouse_entered" from="HBoxContainer/superputo" to="." method="_on_superputo_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/superputo" to="." method="_on_superputo_mouse_exited"]
 [connection signal="button_up" from="HBoxContainer/jarra" to="." method="_on_jarra_button_up"]
+[connection signal="mouse_entered" from="HBoxContainer/jarra" to="." method="_on_jarra_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/jarra" to="." method="_on_jarra_mouse_exited"]
 [connection signal="button_up" from="HBoxContainer/comendo" to="." method="_on_comendo_button_up"]
+[connection signal="mouse_entered" from="HBoxContainer/comendo" to="." method="_on_comendo_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/comendo" to="." method="_on_comendo_mouse_exited"]
 [connection signal="button_up" from="HBoxContainer/tuqui" to="." method="_on_tuqui_button_up"]
+[connection signal="mouse_entered" from="HBoxContainer/tuqui" to="." method="_on_tuqui_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/tuqui" to="." method="_on_tuqui_mouse_exited"]
