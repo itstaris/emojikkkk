@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bkvn85wq4lbej"]
+[gd_scene load_steps=13 format=3 uid="uid://bkvn85wq4lbej"]
 
 [ext_resource type="Script" uid="uid://bti4ejpgxo4in" path="res://Scripts/ui.gd" id="1_2246s"]
 [ext_resource type="Texture2D" uid="uid://mw8ia7hclpdu" path="res://Assets/drive-download-20250522T172244Z-1-001/Screenshot_20250522_141611_WhatsApp.png" id="2_q7pk6"]
@@ -7,13 +7,25 @@
 [ext_resource type="Texture2D" uid="uid://bingblewjb4pq" path="res://Assets/drive-download-20250522T172244Z-1-001/Screenshot_20250522_141931_WhatsApp.png" id="5_q7pk6"]
 [ext_resource type="Texture2D" uid="uid://vgwivrsmso5u" path="res://Assets/drive-download-20250522T172244Z-1-001/Screenshot_20250522_141744_WhatsApp.png" id="6_m78vo"]
 
+[sub_resource type="Gradient" id="Gradient_m78vo"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_smcll"]
+gradient = SubResource("Gradient_m78vo")
+
+[sub_resource type="LabelSettings" id="LabelSettings_ryf15"]
+font_size = 31
+
+[sub_resource type="LabelSettings" id="LabelSettings_mmixe"]
+font_size = 31
+
 [sub_resource type="LabelSettings" id="LabelSettings_2246s"]
-font_size = 97
+font_size = 67
 
 [sub_resource type="LabelSettings" id="LabelSettings_q7pk6"]
-font_size = 97
+font_size = 67
 
-[node name="UI" type="MarginContainer" node_paths=PackedStringArray("label_vida_player", "label_vida_inimigo")]
+[node name="UI" type="MarginContainer" node_paths=PackedStringArray("label_vida_player", "label_vida_inimigo", "label_status_player", "label_status_inimigo")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -26,16 +38,67 @@ grow_vertical = 2
 scale = Vector2(0.8, 0.8)
 size_flags_horizontal = 4
 script = ExtResource("1_2246s")
-label_vida_player = NodePath("vida_player")
-label_vida_inimigo = NodePath("vida_inimigo")
+label_vida_player = NodePath("VBoxContainer2/vida_player2")
+label_vida_inimigo = NodePath("VBoxContainer/vida_inimigo")
+label_status_player = NodePath("status_player")
+label_status_inimigo = NodePath("status_player/status_inimigo")
 
-[node name="vida_inimigo" type="Label" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(836.23, 425.859)
+rotation = 3.14159
+scale = Vector2(7.97052, 1170.64)
+texture = SubResource("GradientTexture1D_smcll")
+
+[node name="status_player" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "aaaaaaaaaaaaaaaaaaaaaaa"
+label_settings = SubResource("LabelSettings_ryf15")
+horizontal_alignment = 1
+
+[node name="status_inimigo" type="Label" parent="status_player"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -386.25
+offset_top = 130.5
+offset_right = 386.75
+offset_bottom = 174.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+label_settings = SubResource("LabelSettings_mmixe")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="enemy" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Enemy"
+label_settings = SubResource("LabelSettings_2246s")
+
+[node name="vida_inimigo" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 text = "20"
 label_settings = SubResource("LabelSettings_2246s")
 
-[node name="vida_player" type="Label" parent="."]
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="you" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "You"
+label_settings = SubResource("LabelSettings_q7pk6")
+horizontal_alignment = 2
+
+[node name="vida_player2" type="Label" parent="VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 8
 text = "20"

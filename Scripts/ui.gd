@@ -2,6 +2,9 @@ extends MarginContainer
 
 @export var label_vida_player : Label
 @export var label_vida_inimigo : Label
+@export var label_status_player : Label
+@export var label_status_inimigo : Label
+
 
 var enemy_life = Globals.enemy_life
 var enemy_energy = Globals.enemy_energy
@@ -32,7 +35,7 @@ func _process(_delta):
 
 	if enemy_life <=0:
 		print("você ganhou")
-		get_tree().paused = true
+		get_tree().change_scene_to_file("res://Scenes/winner.tscn")
 
 	if player_life <= 0 && enemy_life <=0:
 		print("empate")
