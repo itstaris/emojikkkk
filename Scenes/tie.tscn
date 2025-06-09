@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://1c4wqdrckp0a" path="res://Scripts/endgame.gd" id="1_k0rde"]
 [ext_resource type="Texture2D" uid="uid://bsci2iix4ujuh" path="res://Assets/Screenshot_20250605_150241_WhatsApp.png" id="2_k0rde"]
-[ext_resource type="Theme" uid="uid://d1ddqcwx4k83q" path="res://themes/button_theme.tres" id="3_xjmh4"]
+[ext_resource type="Theme" uid="uid://d1ddqcwx4k83q" path="res://Scenes/themes/button_theme.tres" id="3_xjmh4"]
 
 [sub_resource type="Theme" id="Theme_5sgi5"]
 Label/font_sizes/font_size = 61
@@ -16,7 +16,17 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_k0rde")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_k0rde")
+
 [node name="Screenshot20250519222737WhatsApp" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(799.002, 456)
 scale = Vector2(4.07445, 2.92212)
 texture = ExtResource("2_k0rde")

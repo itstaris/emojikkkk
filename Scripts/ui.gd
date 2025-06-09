@@ -29,20 +29,20 @@ func _ready():
 	enemy_life = 20
 	player_energy = 10
 	enemy_energy = 10
-	
-	
+
 func _process(_delta):
-	if  player_life <= 0:
-		print("você perdeu")
-		get_tree().change_scene_to_file("res://Scenes/loser.tscn")
+	if not is_inside_tree():
+		return
 
-	if enemy_life <=0:
-		print("você ganhou")
-		get_tree().change_scene_to_file("res://Scenes/winner.tscn")
-
-	if player_life <= 0 && enemy_life <=0:
+	if player_life <= 0 and enemy_life <= 0:
 		print("empate")
 		get_tree().change_scene_to_file("res://Scenes/tie.tscn")
+	elif player_life <= 0:
+		print("você perdeu")
+		get_tree().change_scene_to_file("res://Scenes/loser.tscn")
+	elif enemy_life <= 0:
+		print("você ganhou")
+		get_tree().change_scene_to_file("res://Scenes/winner.tscn")
 
 func _on_puto_button_up() -> void:
 	print("player escdolheu a carta puto")

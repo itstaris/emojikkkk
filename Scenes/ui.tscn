@@ -61,9 +61,9 @@ label_status_inimigo = NodePath("status_inimigo")
 label_descricao = NodePath("status_inimigo/descricao")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(836.23, 425.859)
+position = Vector2(1064.48, 563.165)
 rotation = 3.14159
-scale = Vector2(7.97052, 1170.64)
+scale = Vector2(9.75372, 1445.25)
 texture = SubResource("GradientTexture1D_smcll")
 
 [node name="status_inimigo" type="Label" parent="."]
