@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://2cwaq877osp6"]
+[gd_scene load_steps=5 format=3 uid="uid://b005wfneyfe7c"]
 
 [ext_resource type="Script" uid="uid://1c4wqdrckp0a" path="res://Scripts/endgame.gd" id="1_47byl"]
 [ext_resource type="Texture2D" uid="uid://oijjs13ql15e" path="res://Assets/Screenshot_20250519_222737_WhatsApp.png" id="2_5sgi5"]

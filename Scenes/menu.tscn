@@ -1,0 +1,86 @@
+[gd_scene load_steps=7 format=3 uid="uid://2cwaq877osp6"]
+
+[ext_resource type="Script" uid="uid://1c4wqdrckp0a" path="res://Scripts/endgame.gd" id="1_cayip"]
+[ext_resource type="Texture2D" uid="uid://oijjs13ql15e" path="res://Assets/Screenshot_20250519_222737_WhatsApp.png" id="2_158mb"]
+[ext_resource type="FontFile" uid="uid://cd5bppgtg3p6y" path="res://nokiafc22.ttf" id="3_158mb"]
+[ext_resource type="Theme" uid="uid://d1ddqcwx4k83q" path="res://Scenes/themes/button_theme.tres" id="3_wwsa2"]
+
+[sub_resource type="Theme" id="Theme_5sgi5"]
+Label/font_sizes/font_size = 61
+
+[sub_resource type="LabelSettings" id="LabelSettings_hcd3l"]
+font = ExtResource("3_158mb")
+font_size = 121
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cayip")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -22.0
+offset_right = 116.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_158mb")
+
+[node name="Screenshot20250519222737WhatsApp" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(849.5, 456)
+scale = Vector2(4.27164, 2.23418)
+texture = ExtResource("2_158mb")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -537.0
+offset_top = 45.0
+offset_right = 537.0
+offset_bottom = -507.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_5sgi5")
+text = "STICKER FIGHT"
+label_settings = SubResource("LabelSettings_hcd3l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayAgainButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_wwsa2")
+theme_override_fonts/font = ExtResource("3_158mb")
+text = "Play"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_wwsa2")
+theme_override_fonts/font = ExtResource("3_158mb")
+text = "Quit"
+
+[connection signal="button_up" from="VBoxContainer/PlayAgainButton" to="." method="_on_play_again_button_button_up"]
+[connection signal="button_up" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_button_up"]

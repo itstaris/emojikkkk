@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="rpg turno"
-run/main_scene="uid://bkvn85wq4lbej"
+run/main_scene="uid://2cwaq877osp6"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
